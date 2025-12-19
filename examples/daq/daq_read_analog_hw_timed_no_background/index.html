@@ -19,7 +19,7 @@
     
     
       
-        <title>daq_read_analog_hw_timed_no_background.py - Nominal Instrumentation SDK</title>
+        <title>Example: DAQ read analog HW timed without a background daemon. - Nominal Instrumentation SDK</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#daq_read_analog_hw_timed_no_backgroundpy" class="md-skip">
+        <a href="#example-daq-read-analog-hw-timed-without-a-background-daemon" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              daq_read_analog_hw_timed_no_background.py
+              Example: DAQ read analog HW timed without a background daemon.
             
           </span>
         </div>
@@ -785,8 +785,14 @@
 
 
 
-<h1 id="daq_read_analog_hw_timed_no_backgroundpy">daq_read_analog_hw_timed_no_background.py<a class="headerlink" href="#daq_read_analog_hw_timed_no_backgroundpy" title="Permanent link">¤</a></h1>
-<div class="language-python highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">nominal_instro.instruments</span><span class="w"> </span><span class="kn">import</span> <span class="n">NominalDAQ</span>
+<h1 id="example-daq-read-analog-hw-timed-without-a-background-daemon">Example: DAQ read analog HW timed without a background daemon.<a class="headerlink" href="#example-daq-read-analog-hw-timed-without-a-background-daemon" title="Permanent link">¤</a></h1>
+<div class="language-python highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;Example: DAQ read analog HW timed without a background daemon.</span>
+
+<span class="sd">Demonstrates publishing measurements/commands to a dataset (Nominal Core publisher).</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">nominal_instro.instruments</span><span class="w"> </span><span class="kn">import</span> <span class="n">NominalDAQ</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">nominal_instro.instruments.daq.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">DAQVendor</span><span class="p">,</span> <span class="n">Direction</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">nominal_instro.lib.publishers.nominal_core</span><span class="w"> </span><span class="kn">import</span> <span class="n">NominalCorePublisher</span>
 
