@@ -827,12 +827,13 @@
             <span class="c1"># Main progam loop.</span>
             <span class="c1"># Sit in this while loop until ctrl+c is pressed.</span>
             <span class="c1"># NominalPSU will acquire data from the psu in the background and publish to the configured Publisher.</span>
-            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">voltage</span> <span class="o">=</span> <span class="n">psu</span><span class="o">.</span><span class="n">get_channel</span><span class="p">(</span><span class="s2">&quot;myPSU.ch1_v&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">voltage</span><span class="o">.</span><span class="n">latest</span><span class="p">)</span>
+
         <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
             <span class="k">break</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done&quot;</span><span class="p">)</span>
-
     <span class="n">psu</span><span class="o">.</span><span class="n">output_enable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="k">finally</span><span class="p">:</span>

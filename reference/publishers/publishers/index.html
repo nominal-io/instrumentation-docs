@@ -869,7 +869,7 @@
 <a href="#nominal_instro.lib.publishers.FilePublisher" class="headerlink" title="Permanent link">¤</a></h2>
 <div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">FilePublisher</span><span class="p">(</span>
     <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;directory&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.publishers.FilePublisher(directory)&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.publishers.FilePublisher(directory)">directory</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span> <span class="o">|</span> <span class="n"><a class="autorefs autorefs-external" title="&lt;code&gt;pathlib.Path&lt;/code&gt;" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path">Path</a></span><span class="p">,</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;format&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.publishers.FilePublisher(format)&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.publishers.FilePublisher(format)">format</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Literal&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal</a></span><span class="p">[</span><span class="s2">&quot;json&quot;</span><span class="p">,</span> <span class="s2">&quot;csv&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;format&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.publishers.FilePublisher(format)&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.publishers.FilePublisher(format)">format</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Literal&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal</a></span><span class="p">[</span><span class="s2">&quot;json&quot;</span><span class="p">,</span> <span class="s2">&quot;csv&quot;</span><span class="p">,</span> <span class="s2">&quot;avro&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;avro&quot;</span><span class="p">,</span>
     <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;custom_file_name&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.publishers.FilePublisher(custom_file_name)&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.publishers.FilePublisher(custom_file_name)">custom_file_name</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -892,12 +892,12 @@
         </li>
         <li class="doc-section-item field-body">
 <h3 id="nominal_instro.lib.publishers.FilePublisher(format)" class="doc doc-heading doc-heading-parameter">              <b><code>format</code></b>
-<a href="#nominal_instro.lib.publishers.FilePublisher(format)" class="headerlink" title="Permanent link">¤</a></h3>              (<code><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Literal&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal</a>[&#39;json&#39;, &#39;csv&#39;]</code>, default:
-                  <code>&#39;json&#39;</code>
+<a href="#nominal_instro.lib.publishers.FilePublisher(format)" class="headerlink" title="Permanent link">¤</a></h3>              (<code><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Literal&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal</a>[&#39;json&#39;, &#39;csv&#39;, &#39;avro&#39;]</code>, default:
+                  <code>&#39;avro&#39;</code>
 )
           –
           <div class="doc-md-description">
-            <p>File format to use, either "json" or "csv". Defaults to "json".</p>
+            <p>File format to use, either "json","csv","avro". Defaults to "avro".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
@@ -1046,6 +1046,44 @@ a name based on the current datetime will be generated.</p>
     <div class="doc doc-contents ">
 
         <p>Publish data to file using the appropriate writer.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.lib.publishers.FilePublisher.open" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">open</span>
+
+
+<a href="#nominal_instro.lib.publishers.FilePublisher.open" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">open</span><span class="p">()</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.lib.publishers.FilePublisher.close" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">close</span>
+
+
+<a href="#nominal_instro.lib.publishers.FilePublisher.close" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">close</span><span class="p">()</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Close the publisher and ensure all data is written.</p>
 
 
     </div>

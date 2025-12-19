@@ -19,7 +19,7 @@
     
     
       
-        <title>Example: DAQ read digital line. - Nominal Instrumentation SDK</title>
+        <title>daq_analog_loopback.py - Nominal Instrumentation SDK</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#example-daq-read-digital-line" class="md-skip">
+        <a href="#daq_analog_loopbackpy" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Example: DAQ read digital line.
+              daq_analog_loopback.py
             
           </span>
         </div>
@@ -785,18 +785,12 @@
 
 
 
-<h1 id="example-daq-read-digital-line">Example: DAQ read digital line.<a class="headerlink" href="#example-daq-read-digital-line" title="Permanent link">¤</a></h1>
-<div class="language-python highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;Example: DAQ read digital line.</span>
-
-<span class="sd">Demonstrates publishing measurements/commands to a dataset (Nominal Core publisher).</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">example_daq_vendor_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">example_device_info_digital</span>
+<h1 id="daq_analog_loopbackpy">daq_analog_loopback.py<a class="headerlink" href="#daq_analog_loopbackpy" title="Permanent link">¤</a></h1>
+<div class="language-python highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">nominal_instro.instruments</span><span class="w"> </span><span class="kn">import</span> <span class="n">NominalDAQ</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">nominal_instro.instruments.daq.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">DAQVendor</span><span class="p">,</span> <span class="n">Direction</span><span class="p">,</span> <span class="n">Logic</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">nominal_instro.lib.publishers</span><span class="w"> </span><span class="kn">import</span> <span class="n">NominalCorePublisher</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nominal_instro.instruments.daq.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">DAQVendor</span><span class="p">,</span> <span class="n">Direction</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nominal_instro.lib.publishers.nominal_core</span><span class="w"> </span><span class="kn">import</span> <span class="n">NominalCorePublisher</span>
 
 <span class="c1"># Configuration: Choose your vendor.</span>
 <span class="n">VENDOR</span> <span class="o">=</span> <span class="n">DAQVendor</span><span class="o">.</span><span class="n">LABJACK_T_SERIES</span>
@@ -805,47 +799,60 @@
 <span class="c1"># Each vendor uses different channel naming conventions and resource ID formats. See vendor documentation for details.</span>
 <span class="k">match</span> <span class="n">VENDOR</span><span class="p">:</span>
     <span class="k">case</span> <span class="n">DAQVendor</span><span class="o">.</span><span class="n">LABJACK_T_SERIES</span><span class="p">:</span>
-        <span class="n">CHANNEL_0</span> <span class="o">=</span> <span class="s2">&quot;FIO4&quot;</span>
-        <span class="n">CHANNEL_1</span> <span class="o">=</span> <span class="s2">&quot;FIO5&quot;</span>
-        <span class="n">RESOURCE_ID</span> <span class="o">=</span> <span class="s2">&quot;440020473&quot;</span>
+        <span class="n">AO_CH0</span> <span class="o">=</span> <span class="s2">&quot;DAC0&quot;</span>
+        <span class="n">AO_CH1</span> <span class="o">=</span> <span class="s2">&quot;DAC1&quot;</span>
+        <span class="n">AI_CH0</span> <span class="o">=</span> <span class="s2">&quot;AIN0&quot;</span>
+        <span class="n">AI_CH1</span> <span class="o">=</span> <span class="s2">&quot;AIN1&quot;</span>
+        <span class="n">RESOURCE_ID</span> <span class="o">=</span> <span class="s2">&quot;440020473&quot;</span>  <span class="c1"># LabJack serial number</span>
     <span class="k">case</span> <span class="n">DAQVendor</span><span class="o">.</span><span class="n">NI</span><span class="p">:</span>
-        <span class="n">CHANNEL_0</span> <span class="o">=</span> <span class="s2">&quot;port0/line0&quot;</span>
-        <span class="n">CHANNEL_1</span> <span class="o">=</span> <span class="s2">&quot;port0/line1&quot;</span>
-        <span class="n">RESOURCE_ID</span> <span class="o">=</span> <span class="s2">&quot;Dev1&quot;</span>
-    <span class="k">case</span> <span class="n">DAQVendor</span><span class="o">.</span><span class="n">KEYSIGHT_34980</span><span class="p">:</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">nominal_instro.lib</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConnectConfig</span>
-
-        <span class="n">CHANNEL_0</span> <span class="o">=</span> <span class="s2">&quot;5101/0&quot;</span>
-        <span class="n">CHANNEL_1</span> <span class="o">=</span> <span class="s2">&quot;5101/1&quot;</span>
-        <span class="n">RESOURCE_ID</span> <span class="o">=</span> <span class="n">ConnectConfig</span><span class="p">(</span><span class="n">visa_resource</span><span class="o">=</span><span class="s2">&quot;USB0::0x0957::0x0507::MY44001757::INSTR&quot;</span><span class="p">)</span>
+        <span class="n">AO_CH0</span> <span class="o">=</span> <span class="s2">&quot;ao0&quot;</span>
+        <span class="n">AO_CH1</span> <span class="o">=</span> <span class="s2">&quot;ao1&quot;</span>
+        <span class="n">AI_CH0</span> <span class="o">=</span> <span class="s2">&quot;ai0&quot;</span>
+        <span class="n">AI_CH1</span> <span class="o">=</span> <span class="s2">&quot;ai1&quot;</span>
+        <span class="n">RESOURCE_ID</span> <span class="o">=</span> <span class="s2">&quot;Dev1&quot;</span>  <span class="c1"># NI device name, as defined in MAX (e.g., &quot;Dev1&quot;, &quot;Dev2&quot;)</span>
 
 <span class="c1"># Nominal Core dataset to send data to as the instrument is operated.</span>
 <span class="n">DATASET_RID</span> <span class="o">=</span> <span class="s2">&quot;ri.catalog.cerulean-staging.dataset.50a647a4-0d00-460c-9898-4c282adfe7a4&quot;</span>
 
 <span class="c1">### Main code</span>
-
 <span class="n">daq</span> <span class="o">=</span> <span class="n">NominalDAQ</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;myDAQ&quot;</span><span class="p">,</span> <span class="n">vendor</span><span class="o">=</span><span class="n">VENDOR</span><span class="p">,</span> <span class="n">resource</span><span class="o">=</span><span class="n">RESOURCE_ID</span><span class="p">)</span>
 <span class="n">daq</span><span class="o">.</span><span class="n">add_publisher</span><span class="p">(</span><span class="n">NominalCorePublisher</span><span class="p">(</span><span class="n">dataset_rid</span><span class="o">=</span><span class="n">DATASET_RID</span><span class="p">))</span>
 
 <span class="n">daq</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">daq</span><span class="o">.</span><span class="n">configure_digital_channel</span><span class="p">(</span>
-        <span class="n">direction</span><span class="o">=</span><span class="n">Direction</span><span class="o">.</span><span class="n">INPUT</span><span class="p">,</span>
-        <span class="n">physical_channel</span><span class="o">=</span><span class="n">CHANNEL_0</span><span class="p">,</span>
-        <span class="n">alias</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;di_0&quot;</span><span class="p">,</span>
-        <span class="n">logic</span><span class="o">=</span><span class="n">Logic</span><span class="o">.</span><span class="n">HIGH</span><span class="p">,</span>
+    <span class="n">daq</span><span class="o">.</span><span class="n">configure_analog_channel</span><span class="p">(</span>
+        <span class="n">direction</span><span class="o">=</span><span class="n">Direction</span><span class="o">.</span><span class="n">INPUT</span><span class="p">,</span> <span class="n">physical_channel</span><span class="o">=</span><span class="n">AI_CH0</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ai_0&quot;</span><span class="p">,</span> <span class="n">range_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">range_max</span><span class="o">=</span><span class="mi">5</span>
     <span class="p">)</span>
-    <span class="n">daq</span><span class="o">.</span><span class="n">configure_digital_channel</span><span class="p">(</span>
-        <span class="n">direction</span><span class="o">=</span><span class="n">Direction</span><span class="o">.</span><span class="n">INPUT</span><span class="p">,</span>
-        <span class="n">physical_channel</span><span class="o">=</span><span class="n">CHANNEL_1</span><span class="p">,</span>
-        <span class="n">alias</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;di_1&quot;</span><span class="p">,</span>
-        <span class="n">logic</span><span class="o">=</span><span class="n">Logic</span><span class="o">.</span><span class="n">LOW</span><span class="p">,</span>
+    <span class="n">daq</span><span class="o">.</span><span class="n">configure_analog_channel</span><span class="p">(</span>
+        <span class="n">direction</span><span class="o">=</span><span class="n">Direction</span><span class="o">.</span><span class="n">INPUT</span><span class="p">,</span> <span class="n">physical_channel</span><span class="o">=</span><span class="n">AI_CH1</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ai_1&quot;</span><span class="p">,</span> <span class="n">range_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">range_max</span><span class="o">=</span><span class="mi">5</span>
+    <span class="p">)</span>
+    <span class="n">daq</span><span class="o">.</span><span class="n">configure_analog_channel</span><span class="p">(</span>
+        <span class="n">direction</span><span class="o">=</span><span class="n">Direction</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">physical_channel</span><span class="o">=</span><span class="n">AO_CH0</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ao_0&quot;</span><span class="p">,</span> <span class="n">range_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">range_max</span><span class="o">=</span><span class="mi">5</span>
+    <span class="p">)</span>
+    <span class="n">daq</span><span class="o">.</span><span class="n">configure_analog_channel</span><span class="p">(</span>
+        <span class="n">direction</span><span class="o">=</span><span class="n">Direction</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">physical_channel</span><span class="o">=</span><span class="n">AO_CH1</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;ao_1&quot;</span><span class="p">,</span> <span class="n">range_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">range_max</span><span class="o">=</span><span class="mi">5</span>
     <span class="p">)</span>
 
-    <span class="n">read0</span> <span class="o">=</span> <span class="n">daq</span><span class="o">.</span><span class="n">read_digital_line</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="s2">&quot;di_0&quot;</span><span class="p">)</span>
-    <span class="n">read1</span> <span class="o">=</span> <span class="n">daq</span><span class="o">.</span><span class="n">read_digital_line</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="s2">&quot;di_1&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Values: &quot;</span><span class="p">,</span> <span class="n">read0</span><span class="o">.</span><span class="n">latest</span><span class="p">,</span> <span class="n">read1</span><span class="o">.</span><span class="n">latest</span><span class="p">)</span>
+    <span class="n">daq</span><span class="o">.</span><span class="n">configure_ai_sample_rate</span><span class="p">(</span><span class="n">sample_rate</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="c1"># Start the acquisition.</span>
+    <span class="c1"># This launches a background daemon that fetches samples from the DAQ device buffer.</span>
+    <span class="n">daq</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Main progam loop. Set outputs while NominalDAQ acquires data on the inputs in the background.</span>
+            <span class="c1"># Sit in this while loop until ctrl+c is pressed.</span>
+            <span class="c1"># NominalDAQ will acquire data from the daq device in the background and publish to the configured Publisher.</span>
+            <span class="n">daq</span><span class="o">.</span><span class="n">write_analog_value</span><span class="p">(</span><span class="s2">&quot;ao_0&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">daq</span><span class="o">.</span><span class="n">write_analog_value</span><span class="p">(</span><span class="s2">&quot;ao_1&quot;</span><span class="p">,</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exiting main loop&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+
+    <span class="n">daq</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 
 <span class="k">finally</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Closing DAQ&quot;</span><span class="p">)</span>

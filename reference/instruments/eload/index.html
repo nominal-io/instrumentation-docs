@@ -1130,6 +1130,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.eload.eload.NominalELoad.get_channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;get_channel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#nominal_instro.instruments.eload.eload.NominalELoad.define_background_daemon" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2788,6 +2799,123 @@ method does nothing. The thread will continue running until <code>stop()</code> 
         <p>Stop the background worker thread.</p>
 <p>This method signals the background worker thread to stop and waits for it to
 complete. If the thread is not running, this method does nothing.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.eload.eload.NominalELoad.get_channel" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">get_channel</span>
+
+
+<a href="#nominal_instro.instruments.eload.eload.NominalELoad.get_channel" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">get_channel</span><span class="p">(</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;channel_name&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.eload.eload.NominalELoad.get_channel(channel_name)&lt;/code&gt;)" href="#nominal_instro.instruments.eload.eload.NominalELoad.get_channel(channel_name)">channel_name</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;length&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.eload.eload.NominalELoad.get_channel(length)&lt;/code&gt;)" href="#nominal_instro.instruments.eload.eload.NominalELoad.get_channel(length)">length</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;wait_for_latest&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.eload.eload.NominalELoad.get_channel(wait_for_latest)&lt;/code&gt;)" href="#nominal_instro.instruments.eload.eload.NominalELoad.get_channel(wait_for_latest)">wait_for_latest</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;timeout&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.eload.eload.NominalELoad.get_channel(timeout)&lt;/code&gt;)" href="#nominal_instro.instruments.eload.eload.NominalELoad.get_channel(timeout)">timeout</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Measurement&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.types.Measurement&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.Measurement">Measurement</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Get most recent Measurement data for a specific channel from the buffer.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.eload.eload.NominalELoad.get_channel(channel_name)" class="doc doc-heading doc-heading-parameter">              <b><code>channel_name</code></b>
+<a href="#nominal_instro.instruments.eload.eload.NominalELoad.get_channel(channel_name)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>The name of the channel from which to retrieve data.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.eload.eload.NominalELoad.get_channel(length)" class="doc doc-heading doc-heading-parameter">              <b><code>length</code></b>
+<a href="#nominal_instro.instruments.eload.eload.NominalELoad.get_channel(length)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>, default:
+                  <code>1</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>The number of most recent samples to return.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.eload.eload.NominalELoad.get_channel(wait_for_latest)" class="doc doc-heading doc-heading-parameter">              <b><code>wait_for_latest</code></b>
+<a href="#nominal_instro.instruments.eload.eload.NominalELoad.get_channel(wait_for_latest)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>, default:
+                  <code>False</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Block and wait for the next channel value(s).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.eload.eload.NominalELoad.get_channel(timeout)" class="doc doc-heading doc-heading-parameter">              <b><code>timeout</code></b>
+<a href="#nominal_instro.instruments.eload.eload.NominalELoad.get_channel(timeout)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>, default:
+                  <code>10.0</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Timeout in seconds when waiting for channel or values. Defaults to 10.0 seconds.
+Only applies when wait_for_latest=True.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>Measurement</code></b> (              <code><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Measurement&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.types.Measurement&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.Measurement">Measurement</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>A Measurement object containing the requested channel data and timestamps.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError">RuntimeError</a></code>
+            –
+          <div class="doc-md-description">
+            <p>No background buffer exists because start() was not called.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+              <code><span title="ChannelNotFoundTimeoutError">ChannelNotFoundTimeoutError</span></code>
+            –
+          <div class="doc-md-description">
+            <p>If wait_for_latest=True and the channel does not appear within timeout.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+              <code><span title="ChannelValueTimeoutError">ChannelValueTimeoutError</span></code>
+            –
+          <div class="doc-md-description">
+            <p>If wait_for_latest=True and sufficient values are not available within timeout.</p>
+          </div>
+        </li>
+    </ul>
 
 
     </div>

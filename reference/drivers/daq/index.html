@@ -938,6 +938,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.daq.driver.DAQDriverBase.configure_ao_channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;configure_ao_channel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#nominal_instro.instruments.daq.driver.DAQDriverBase.configure_ai_hw_timing" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1019,6 +1030,17 @@
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;fetch_analog
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.daq.driver.DAQDriverBase.write_analog_value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;write_analog_value
       
     </span>
   </a>
@@ -1153,6 +1175,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.daq.driver.DAQDriverDataHandler.configure_ao_channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;configure_ao_channel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#nominal_instro.instruments.daq.driver.DAQDriverDataHandler.configure_ai_hw_timing" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1234,6 +1267,17 @@
     <span class="md-ellipsis">
       
         <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;fetch_analog
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.daq.driver.DAQDriverDataHandler.write_analog_value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;write_analog_value
       
     </span>
   </a>
@@ -1711,6 +1755,24 @@ Public API:
 <div class="doc doc-object doc-function">
 
 
+<h3 id="nominal_instro.instruments.daq.driver.DAQDriverBase.configure_ao_channel" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">configure_ao_channel</span>
+
+
+<a href="#nominal_instro.instruments.daq.driver.DAQDriverBase.configure_ao_channel" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">configure_ao_channel</span><span class="p">(</span><span class="n"><span title="nominal_instro.instruments.daq.driver.DAQDriverBase.configure_ao_channel(channel)">channel</span></span><span class="p">:</span> <span class="n"><span title="nominal_instro.instruments.daq.types.AnalogChannel">AnalogChannel</span></span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="nominal_instro.instruments.daq.driver.DAQDriverBase.configure_ai_hw_timing" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">configure_ai_hw_timing</span>
 
@@ -1897,6 +1959,47 @@ Public API:
 </code></pre></div>
 
     <div class="doc doc-contents ">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.daq.driver.DAQDriverBase.write_analog_value" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">write_analog_value</span>
+
+
+<a href="#nominal_instro.instruments.daq.driver.DAQDriverBase.write_analog_value" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">write_analog_value</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;channel&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.daq.driver.DAQDriverBase.write_analog_value(channel)&lt;/code&gt;)" href="#nominal_instro.instruments.daq.driver.DAQDriverBase.write_analog_value(channel)">channel</a></span><span class="p">:</span> <span class="n"><span title="nominal_instro.instruments.daq.types.AnalogChannel">AnalogChannel</span></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;value&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.daq.driver.DAQDriverBase.write_analog_value(value)&lt;/code&gt;)" href="#nominal_instro.instruments.daq.driver.DAQDriverBase.write_analog_value(value)">value</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Write a value to an analog output channel.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.daq.driver.DAQDriverBase.write_analog_value(channel)" class="doc doc-heading doc-heading-parameter">              <b><code>channel</code></b>
+<a href="#nominal_instro.instruments.daq.driver.DAQDriverBase.write_analog_value(channel)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><span title="nominal_instro.instruments.daq.types.AnalogChannel">AnalogChannel</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>Channel to write setpoint to.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.daq.driver.DAQDriverBase.write_analog_value(value)" class="doc doc-heading doc-heading-parameter">              <b><code>value</code></b>
+<a href="#nominal_instro.instruments.daq.driver.DAQDriverBase.write_analog_value(value)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Value to output</p>
+          </div>
+        </li>
+    </ul>
 
 
     </div>
@@ -2185,6 +2288,24 @@ Public API:
 <div class="doc doc-object doc-function">
 
 
+<h3 id="nominal_instro.instruments.daq.driver.DAQDriverDataHandler.configure_ao_channel" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">configure_ao_channel</span>
+
+
+<a href="#nominal_instro.instruments.daq.driver.DAQDriverDataHandler.configure_ao_channel" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">configure_ao_channel</span><span class="p">(</span><span class="n"><span title="nominal_instro.instruments.daq.driver.DAQDriverDataHandler.configure_ao_channel(channel)">channel</span></span><span class="p">:</span> <span class="n"><span title="nominal_instro.instruments.daq.types.AnalogChannel">AnalogChannel</span></span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="nominal_instro.instruments.daq.driver.DAQDriverDataHandler.configure_ai_hw_timing" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">configure_ai_hw_timing</span>
 
@@ -2371,6 +2492,47 @@ Public API:
 </code></pre></div>
 
     <div class="doc doc-contents ">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.daq.driver.DAQDriverDataHandler.write_analog_value" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">write_analog_value</span>
+
+
+<a href="#nominal_instro.instruments.daq.driver.DAQDriverDataHandler.write_analog_value" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">write_analog_value</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;channel&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.daq.driver.DAQDriverDataHandler.write_analog_value(channel)&lt;/code&gt;)" href="#nominal_instro.instruments.daq.driver.DAQDriverDataHandler.write_analog_value(channel)">channel</a></span><span class="p">:</span> <span class="n"><span title="nominal_instro.instruments.daq.types.AnalogChannel">AnalogChannel</span></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;value&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.daq.driver.DAQDriverDataHandler.write_analog_value(value)&lt;/code&gt;)" href="#nominal_instro.instruments.daq.driver.DAQDriverDataHandler.write_analog_value(value)">value</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Write a value to an analog output channel.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.daq.driver.DAQDriverDataHandler.write_analog_value(channel)" class="doc doc-heading doc-heading-parameter">              <b><code>channel</code></b>
+<a href="#nominal_instro.instruments.daq.driver.DAQDriverDataHandler.write_analog_value(channel)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><span title="nominal_instro.instruments.daq.types.AnalogChannel">AnalogChannel</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>Channel to write setpoint to.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.daq.driver.DAQDriverDataHandler.write_analog_value(value)" class="doc doc-heading doc-heading-parameter">              <b><code>value</code></b>
+<a href="#nominal_instro.instruments.daq.driver.DAQDriverDataHandler.write_analog_value(value)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Value to output</p>
+          </div>
+        </li>
+    </ul>
 
 
     </div>

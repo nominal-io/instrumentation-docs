@@ -2285,6 +2285,123 @@ complete. If the thread is not running, this method does nothing.</p>
 <div class="doc doc-object doc-function">
 
 
+<h3 id="nominal_instro.lib.NominalInstrument.get_channel" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">get_channel</span>
+
+
+<a href="#nominal_instro.lib.NominalInstrument.get_channel" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">get_channel</span><span class="p">(</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;channel_name&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.NominalInstrument.get_channel(channel_name)&lt;/code&gt;)" href="#nominal_instro.lib.NominalInstrument.get_channel(channel_name)">channel_name</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;length&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.NominalInstrument.get_channel(length)&lt;/code&gt;)" href="#nominal_instro.lib.NominalInstrument.get_channel(length)">length</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;wait_for_latest&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.NominalInstrument.get_channel(wait_for_latest)&lt;/code&gt;)" href="#nominal_instro.lib.NominalInstrument.get_channel(wait_for_latest)">wait_for_latest</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;timeout&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.NominalInstrument.get_channel(timeout)&lt;/code&gt;)" href="#nominal_instro.lib.NominalInstrument.get_channel(timeout)">timeout</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Measurement&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.types.Measurement&lt;/code&gt;)" href="#nominal_instro.lib.Measurement">Measurement</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Get most recent Measurement data for a specific channel from the buffer.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.lib.NominalInstrument.get_channel(channel_name)" class="doc doc-heading doc-heading-parameter">              <b><code>channel_name</code></b>
+<a href="#nominal_instro.lib.NominalInstrument.get_channel(channel_name)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>The name of the channel from which to retrieve data.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.lib.NominalInstrument.get_channel(length)" class="doc doc-heading doc-heading-parameter">              <b><code>length</code></b>
+<a href="#nominal_instro.lib.NominalInstrument.get_channel(length)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>, default:
+                  <code>1</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>The number of most recent samples to return.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.lib.NominalInstrument.get_channel(wait_for_latest)" class="doc doc-heading doc-heading-parameter">              <b><code>wait_for_latest</code></b>
+<a href="#nominal_instro.lib.NominalInstrument.get_channel(wait_for_latest)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>, default:
+                  <code>False</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Block and wait for the next channel value(s).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.lib.NominalInstrument.get_channel(timeout)" class="doc doc-heading doc-heading-parameter">              <b><code>timeout</code></b>
+<a href="#nominal_instro.lib.NominalInstrument.get_channel(timeout)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>, default:
+                  <code>10.0</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Timeout in seconds when waiting for channel or values. Defaults to 10.0 seconds.
+Only applies when wait_for_latest=True.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>Measurement</code></b> (              <code><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Measurement&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.types.Measurement&lt;/code&gt;)" href="#nominal_instro.lib.Measurement">Measurement</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>A Measurement object containing the requested channel data and timestamps.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError">RuntimeError</a></code>
+            –
+          <div class="doc-md-description">
+            <p>No background buffer exists because start() was not called.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+              <code><span title="ChannelNotFoundTimeoutError">ChannelNotFoundTimeoutError</span></code>
+            –
+          <div class="doc-md-description">
+            <p>If wait_for_latest=True and the channel does not appear within timeout.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+              <code><span title="ChannelValueTimeoutError">ChannelValueTimeoutError</span></code>
+            –
+          <div class="doc-md-description">
+            <p>If wait_for_latest=True and sufficient values are not available within timeout.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="nominal_instro.lib.NominalInstrument.define_background_daemon" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">define_background_daemon</span>
 
@@ -2577,31 +2694,78 @@ when you want to replace the default background functions with a custom implemen
 
 
 
-<h3 id="nominal_instro.lib.Measurement.value" class="doc doc-heading">
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">value</span>
+<h3 id="nominal_instro.lib.Measurement.values" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">values</span>
 
 
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-property"><code>property</code></small>
   </span>
 
-<a href="#nominal_instro.lib.Measurement.value" class="headerlink" title="Permanent link">¤</a></h3>
-<div class="language-python doc-signature highlight"><pre><span></span><code><span class="n">value</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span> <span class="o">|</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span>
+<a href="#nominal_instro.lib.Measurement.values" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="n">values</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span><span class="p">]</span> <span class="o">|</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
 
-        <p>When measurement is of a single channel, returns the latest value (last data point) for that channel.</p>
-<p>Useful for single value measurements or interested only in the latest value.</p>
+        <p>When measurement is of a single channel, returns the data for that channel.</p>
 
 
 <p><span class="doc-section-title">Returns:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-<b><code>float</code></b> (              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a> | <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
-)          –
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a>] | <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>
+          –
           <div class="doc-md-description">
-            <p>data value for channel.</p>
+            <p>list[float | str]: data value for channel.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
+            –
+          <div class="doc-md-description">
+            <p>Multiple channels present. Use channel_data directly and index for the desired channel.</p>
+          </div>
+        </li>
+    </ul>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="nominal_instro.lib.Measurement.latest" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">latest</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+<a href="#nominal_instro.lib.Measurement.latest" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="n">latest</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span> <span class="o">|</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>When measurement is of a single channel, returns the latest data for that channel.</p>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a> | <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+          –
+          <div class="doc-md-description">
+            <p>float | str: latest value for channel.</p>
           </div>
         </li>
     </ul>
@@ -4485,7 +4649,7 @@ user base on the input information.</p>
 <a href="#nominal_instro.lib.publishers.FilePublisher" class="headerlink" title="Permanent link">¤</a></h2>
 <div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">FilePublisher</span><span class="p">(</span>
     <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;directory&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.publishers.FilePublisher(directory)&lt;/code&gt;)" href="#nominal_instro.lib.publishers.FilePublisher(directory)">directory</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span> <span class="o">|</span> <span class="n"><a class="autorefs autorefs-external" title="&lt;code&gt;pathlib.Path&lt;/code&gt;" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path">Path</a></span><span class="p">,</span>
-    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;format&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.publishers.FilePublisher(format)&lt;/code&gt;)" href="#nominal_instro.lib.publishers.FilePublisher(format)">format</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Literal&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal</a></span><span class="p">[</span><span class="s2">&quot;json&quot;</span><span class="p">,</span> <span class="s2">&quot;csv&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;format&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.publishers.FilePublisher(format)&lt;/code&gt;)" href="#nominal_instro.lib.publishers.FilePublisher(format)">format</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Literal&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal</a></span><span class="p">[</span><span class="s2">&quot;json&quot;</span><span class="p">,</span> <span class="s2">&quot;csv&quot;</span><span class="p">,</span> <span class="s2">&quot;avro&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;avro&quot;</span><span class="p">,</span>
     <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;custom_file_name&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.publishers.FilePublisher(custom_file_name)&lt;/code&gt;)" href="#nominal_instro.lib.publishers.FilePublisher(custom_file_name)">custom_file_name</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -4508,12 +4672,12 @@ user base on the input information.</p>
         </li>
         <li class="doc-section-item field-body">
 <h3 id="nominal_instro.lib.publishers.FilePublisher(format)" class="doc doc-heading doc-heading-parameter">              <b><code>format</code></b>
-<a href="#nominal_instro.lib.publishers.FilePublisher(format)" class="headerlink" title="Permanent link">¤</a></h3>              (<code><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Literal&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal</a>[&#39;json&#39;, &#39;csv&#39;]</code>, default:
-                  <code>&#39;json&#39;</code>
+<a href="#nominal_instro.lib.publishers.FilePublisher(format)" class="headerlink" title="Permanent link">¤</a></h3>              (<code><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Literal&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal</a>[&#39;json&#39;, &#39;csv&#39;, &#39;avro&#39;]</code>, default:
+                  <code>&#39;avro&#39;</code>
 )
           –
           <div class="doc-md-description">
-            <p>File format to use, either "json" or "csv". Defaults to "json".</p>
+            <p>File format to use, either "json","csv","avro". Defaults to "avro".</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
@@ -4662,6 +4826,44 @@ a name based on the current datetime will be generated.</p>
     <div class="doc doc-contents ">
 
         <p>Publish data to file using the appropriate writer.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.lib.publishers.FilePublisher.open" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">open</span>
+
+
+<a href="#nominal_instro.lib.publishers.FilePublisher.open" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">open</span><span class="p">()</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.lib.publishers.FilePublisher.close" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">close</span>
+
+
+<a href="#nominal_instro.lib.publishers.FilePublisher.close" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">close</span><span class="p">()</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Close the publisher and ensure all data is written.</p>
 
 
     </div>

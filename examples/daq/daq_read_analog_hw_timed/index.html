@@ -845,10 +845,12 @@
 
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="c1"># Main progam loop.</span>
-            <span class="c1"># Sit in this while loop until ctrl+c is pressed.</span>
-            <span class="c1"># The NominalDAQ will acquire data from the daq device in the background and publish to the configured Publisher.</span>
-            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">ch_1</span> <span class="o">=</span> <span class="n">daq</span><span class="o">.</span><span class="n">get_channel</span><span class="p">(</span><span class="s2">&quot;myDAQ.ch_0&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># This will block for the latest sample</span>
+            <span class="n">ch_2</span> <span class="o">=</span> <span class="n">daq</span><span class="o">.</span><span class="n">get_channel</span><span class="p">(</span><span class="s2">&quot;myDAQ.ch_1&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># This will immedietly return with 10 samples.</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channel 1 latest: </span><span class="si">{</span><span class="n">ch_1</span><span class="o">.</span><span class="n">latest</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channel 1 samples: </span><span class="si">{</span><span class="n">ch_1</span><span class="o">.</span><span class="n">values</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channel 2 latest: </span><span class="si">{</span><span class="n">ch_2</span><span class="o">.</span><span class="n">latest</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Channel 2 samples: </span><span class="si">{</span><span class="n">ch_2</span><span class="o">.</span><span class="n">values</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exiting main loop&quot;</span><span class="p">)</span>
             <span class="k">break</span>
