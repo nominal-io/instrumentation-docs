@@ -1,0 +1,2947 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>I2c - Nominal Instrumentation SDK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../css/mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#nominal_instro.instruments.i2c.i2c" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Nominal Instrumentation SDK" class="md-header__button md-logo" aria-label="Nominal Instrumentation SDK" data-md-component="logo">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nominal Instrumentation SDK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              I2c
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nominal-io/instrumentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nominal-io/instrumentation
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../instrumentation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../examples/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://docs.nominal.io/core/sdk/python-client/quickstart" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Python client library
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://nominal-io.github.io/connect-python-sdk/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Connect client library
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://nominal.io" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Nominal
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Nominal Instrumentation SDK" class="md-nav__button md-logo" aria-label="Nominal Instrumentation SDK" data-md-component="logo">
+      
+  <img src="../../../logo.svg" alt="logo">
+
+    </a>
+    Nominal Instrumentation SDK
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nominal-io/instrumentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nominal-io/instrumentation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../instrumentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instrumentation Library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Examples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.nominal.io/core/sdk/python-client/quickstart" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python client library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://nominal-io.github.io/connect-python-sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect client library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://nominal.io" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nominal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;NominalI2C
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" NominalI2C">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C(name)" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C(driver)" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;driver
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C(system_definition)" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;system_definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C(publishers)" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;publishers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C(**kwargs)" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;**kwargs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.data_handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;data_handler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.publishers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;publishers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.default_tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;default_tags
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.background_interval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;background_interval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.background_enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-attribute"></code>&nbsp;background_enable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;create
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;write_read_raw
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_raw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;write_raw
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;read_raw
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;write_then_read_raw
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;read
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;write
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;reset_reg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;query
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;close
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.add_publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;add_publisher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.publish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;publish
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.get_identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;get_identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.open_and_get_identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;open_and_get_identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;open
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.send_arbitrary_command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;send_arbitrary_command
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.query_arbitrary_command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;query_arbitrary_command
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;add_background_daemon_function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code>&nbsp;define_background_daemon
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2CFacade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-class"></code>&nbsp;NominalI2CFacade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label=" NominalI2CFacade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nominal_instro.instruments.i2c.i2c.NominalI2CFacade(nominal_i2c)" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <code class="doc-symbol doc-symbol-toc doc-symbol-parameter"></code>&nbsp;nominal_i2c
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/nominal-io/instrumentation/edit/main/docs/reference/instruments/i2c.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/nominal-io/instrumentation/raw/main/docs/reference/instruments/i2c.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h1 id="nominal_instro.instruments.i2c.i2c" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <span class="doc doc-object-name doc-module-name">i2c</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c" class="headerlink" title="Permanent link">¤</a></h1>
+
+    <div class="doc doc-contents first">
+
+        <p>I2C instrument interface and helpers.</p>
+<p>Defines <code>NominalI2C</code> and related helpers.
+Public API:
+    NominalI2C, NominalI2CFacade</p>
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="nominal_instro.instruments.i2c.i2c.NominalI2C" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <span class="doc doc-object-name doc-class-name">NominalI2C</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C" class="headerlink" title="Permanent link">¤</a></h2>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">NominalI2C</span><span class="p">(</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;name&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C(name)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C(name)">name</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;driver&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C(driver)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C(driver)">driver</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;I2CDriverBase&lt;/span&gt; (&lt;code&gt;nominal_instro.instruments.i2c.I2CDriverBase&lt;/code&gt;)" href="../../drivers/i2c/#nominal_instro.instruments.i2c.driver.I2CDriverBase">I2CDriverBase</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;system_definition&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C(system_definition)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C(system_definition)">system_definition</a></span><span class="p">:</span> <span class="n"><span title="nominal_instro.instruments.i2c.types.SystemDefinition">SystemDefinition</span></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;publishers&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C(publishers)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C(publishers)">publishers</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Optional&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Optional">Optional</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></span><span class="p">[</span><span class="n"><span title="nominal_instro.lib.publishers.publisher.Publisher">Publisher</span></span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;**kwargs&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C(**kwargs)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C(**kwargs)">kwargs</a></span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;NominalInstrument&lt;/span&gt; (&lt;code&gt;nominal_instro.lib.NominalInstrument&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.NominalInstrument">NominalInstrument</a></code></p>
+
+
+
+        <p>I2C interface with support for both register-based and command-based operations.</p>
+<p>This class provides methods for:
+- Reading and writing registers with field-level access
+- Sending commands to devices and reading responses</p>
+<p>Commands are defined as enums that can be reused across multiple devices.
+Users simply pass the enum values they want to combine, and the system
+automatically ORs them together and sends the command.</p>
+
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C(name)" class="doc doc-heading doc-heading-parameter">              <b><code>name</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C(name)" class="headerlink" title="Permanent link">¤</a></h3>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>A name to identify this I2C instance. Used in channel naming
+and published data.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C(driver)" class="doc doc-heading doc-heading-parameter">              <b><code>driver</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C(driver)" class="headerlink" title="Permanent link">¤</a></h3>              (<code><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;I2CDriverBase&lt;/span&gt; (&lt;code&gt;nominal_instro.instruments.i2c.I2CDriverBase&lt;/code&gt;)" href="../../drivers/i2c/#nominal_instro.instruments.i2c.driver.I2CDriverBase">I2CDriverBase</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>The driver instance for the specific I2C adapter vendor.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C(system_definition)" class="doc doc-heading doc-heading-parameter">              <b><code>system_definition</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C(system_definition)" class="headerlink" title="Permanent link">¤</a></h3>              (<code><span title="nominal_instro.instruments.i2c.types.SystemDefinition">SystemDefinition</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>Complete system definition containing device
+configurations, register maps, and communication parameters.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C(publishers)" class="doc doc-heading doc-heading-parameter">              <b><code>publishers</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C(publishers)" class="headerlink" title="Permanent link">¤</a></h3>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<span title="nominal_instro.lib.publishers.publisher.Publisher">Publisher</span>] | None</code>, default:
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>List of publishers to send data to
+when executing methods. Defaults to None.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C(**kwargs)" class="doc doc-heading doc-heading-parameter">              <b><code>**kwargs</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C(**kwargs)" class="headerlink" title="Permanent link">¤</a></h3>          –
+          <div class="doc-md-description">
+            <p>Optional keyword arguments used as tags throughout the life of the instrument.
+These tags are applied to the Measurement and Command objects and can be utilized by publishers like
+NominalCorePublisher as added metadata.</p>
+<p>Special keyword arguments:
+    dataset_rid (str): If provided, automatically creates and adds a
+        NominalCorePublisher with the specified dataset RID. Assumes a Nominal
+        'default' credential is stored on disk.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.name" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">name</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.name" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;name&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.instrument.NominalInstrument(name)&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.NominalInstrument(name)">name</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.data_handler" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">data_handler</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.data_handler" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="n">data_handler</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="kc">None</span>
+    <span class="k">if</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;connection_config&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.instrument.NominalInstrument(connection_config)&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.NominalInstrument(connection_config)">connection_config</a></span> <span class="ow">is</span> <span class="kc">None</span>
+    <span class="k">else</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;DataHandler&lt;/span&gt; (&lt;code&gt;nominal_instro.lib.cominterface.DataHandler&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.cominterface.DataHandler">DataHandler</a></span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-function&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-function-name&quot;&gt;select&lt;/span&gt; (&lt;code&gt;nominal_instro.lib.cominterface.select&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.cominterface.select">select</a></span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;connection_config&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.instrument.NominalInstrument(connection_config)&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.NominalInstrument(connection_config)">connection_config</a></span><span class="p">))</span>
+<span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.publishers" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">publishers</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.publishers" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="n">publishers</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;publishers&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.lib.instrument.NominalInstrument(publishers)&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.NominalInstrument(publishers)">publishers</a></span> <span class="ow">or</span> <span class="p">[]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.default_tags" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">default_tags</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.default_tags" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="n">default_tags</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.background_interval" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">background_interval</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+      <small class="doc doc-label doc-label-writable"><code>writable</code></small>
+  </span>
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.background_interval" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="n">background_interval</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Get the background worker interval setting.</p>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>float</code></b>          –
+          <div class="doc-md-description">
+            <p>The current interval in seconds between background worker iterations.
+The worker waits this duration between executing background daemon functions.</p>
+          </div>
+        </li>
+    </ul>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.background_enable" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>            <span class="doc doc-object-name doc-attribute-name">background_enable</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+      <small class="doc doc-label doc-label-writable"><code>writable</code></small>
+  </span>
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.background_enable" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="n">background_enable</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Get the background worker enable state.</p>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>bool</code></b>          –
+          <div class="doc-md-description">
+            <p>True if the background worker is enabled, False otherwise.</p>
+          </div>
+        </li>
+    </ul>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.create" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">create</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.create" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">create</span><span class="p">(</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;name&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.create(name)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.create(name)">name</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;vendor&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.create(vendor)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.create(vendor)">vendor</a></span><span class="p">:</span> <span class="n"><span title="nominal_instro.instruments.i2c.types.I2CVendor">I2CVendor</span></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;resource&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.create(resource)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.create(resource)">resource</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;system_definition&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.create(system_definition)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.create(system_definition)">system_definition</a></span><span class="p">:</span> <span class="n"><span title="nominal_instro.instruments.i2c.types.SystemDefinition">SystemDefinition</span></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;publishers&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.create(publishers)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.create(publishers)">publishers</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></span><span class="p">[</span><span class="n"><span title="nominal_instro.lib.publishers.publisher.Publisher">Publisher</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;**kwargs&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.create(**kwargs)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.create(**kwargs)">kwargs</a></span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;NominalI2C&lt;/span&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C">NominalI2C</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Create a NominalI2C instrument with the appropriate driver.</p>
+<p>This factory method automatically selects and initializes the correct I2C driver
+based on the specified vendor, then creates a NominalI2C instrument instance
+configured with the provided system definition.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.create(name)" class="doc doc-heading doc-heading-parameter">              <b><code>name</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.create(name)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>A name to identify this I2C instance. Used in channel naming
+and published data.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.create(vendor)" class="doc doc-heading doc-heading-parameter">              <b><code>vendor</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.create(vendor)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><span title="nominal_instro.instruments.i2c.types.I2CVendor">I2CVendor</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>The I2C adapter vendor enum (e.g., TOTAL_PHASE).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.create(resource)" class="doc doc-heading doc-heading-parameter">              <b><code>resource</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.create(resource)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Vendor-specific resource identifier (e.g., serial number, device_id).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.create(system_definition)" class="doc doc-heading doc-heading-parameter">              <b><code>system_definition</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.create(system_definition)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><span title="nominal_instro.instruments.i2c.types.SystemDefinition">SystemDefinition</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>Complete system definition containing device
+configurations, register maps, and communication parameters.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.create(publishers)" class="doc doc-heading doc-heading-parameter">              <b><code>publishers</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.create(publishers)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<span title="nominal_instro.lib.publishers.publisher.Publisher">Publisher</span>] | None</code>, default:
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>List of publishers to send data to
+when executing methods. Defaults to None.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.create(**kwargs)" class="doc doc-heading doc-heading-parameter">              <b><code>**kwargs</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.create(**kwargs)" class="headerlink" title="Permanent link">¤</a></h4>          –
+          <div class="doc-md-description">
+            <p>Optional keyword arguments used as tags throughout the life of the instrument.
+These tags are applied to the Measurement and Command objects and can be utilized by publishers like
+NominalCorePublisher as added metadata.</p>
+<p>Special keyword arguments:
+    dataset_rid (str): If provided, automatically creates and adds a
+        NominalCorePublisher with the specified dataset RID. Assumes a Nominal
+        'default' credential is stored on disk.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>NominalI2C</code></b> (              <code><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;NominalI2C&lt;/span&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C">NominalI2C</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>A fully initialized NominalI2C instrument ready for I2C communication.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">write_read_raw</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">write_read_raw</span><span class="p">(</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;address&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(address)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(address)">address</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;payload&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(payload)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(payload)">payload</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;length&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(length)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(length)">length</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;endianness&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(endianness)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(endianness)">endianness</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Literal&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal</a></span><span class="p">[</span><span class="s2">&quot;little&quot;</span><span class="p">,</span> <span class="s2">&quot;big&quot;</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Perform a raw I2C write-read operation without an intermediate stop condition.</p>
+<p>This method writes data to the specified I2C address and immediately reads back
+a response without issuing an I2C stop condition between operations. This is
+useful for register reads where the register address is written first, followed
+by reading the register contents.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(address)" class="doc doc-heading doc-heading-parameter">              <b><code>address</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(address)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>7-bit I2C device address.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(payload)" class="doc doc-heading doc-heading-parameter">              <b><code>payload</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(payload)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Bytes to write (typically the register address).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(length)" class="doc doc-heading doc-heading-parameter">              <b><code>length</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(length)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Number of bytes to read back.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(endianness)" class="doc doc-heading doc-heading-parameter">              <b><code>endianness</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_read_raw(endianness)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Literal&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal</a>[&#39;little&#39;, &#39;big&#39;]</code>)
+          –
+          <div class="doc-md-description">
+            <p>Byte order for integer conversion.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>int</code></b> (              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>The read data converted to an integer using the specified endianness.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write_raw" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">write_raw</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_raw" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">write_raw</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;address&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write_raw(address)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_raw(address)">address</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;data&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write_raw(data)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_raw(data)">data</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a></span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Perform a raw I2C write operation.</p>
+<p>Writes arbitrary bytes to the specified I2C device address.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write_raw(address)" class="doc doc-heading doc-heading-parameter">              <b><code>address</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_raw(address)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>7-bit I2C device address.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write_raw(data)" class="doc doc-heading doc-heading-parameter">              <b><code>data</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_raw(data)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Bytes to write to the device.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">read_raw</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">read_raw</span><span class="p">(</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;address&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw(address)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw(address)">address</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;length&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw(length)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw(length)">length</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;endianness&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw(endianness)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw(endianness)">endianness</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Literal&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal</a></span><span class="p">[</span><span class="s2">&quot;little&quot;</span><span class="p">,</span> <span class="s2">&quot;big&quot;</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Perform a raw I2C read operation.</p>
+<p>Reads arbitrary bytes from the specified I2C device address.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw(address)" class="doc doc-heading doc-heading-parameter">              <b><code>address</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw(address)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>7-bit I2C device address.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw(length)" class="doc doc-heading doc-heading-parameter">              <b><code>length</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw(length)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Number of bytes to read.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw(endianness)" class="doc doc-heading doc-heading-parameter">              <b><code>endianness</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read_raw(endianness)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Literal&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal</a>[&#39;little&#39;, &#39;big&#39;]</code>)
+          –
+          <div class="doc-md-description">
+            <p>Byte order for integer conversion.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>int</code></b> (              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>The read data converted to an integer using the specified endianness.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">write_then_read_raw</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">write_then_read_raw</span><span class="p">(</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;address&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(address)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(address)">address</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;payload&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(payload)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(payload)">payload</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;length&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(length)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(length)">length</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;endianness&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(endianness)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(endianness)">endianness</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Literal&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal</a></span><span class="p">[</span><span class="s2">&quot;little&quot;</span><span class="p">,</span> <span class="s2">&quot;big&quot;</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Perform a raw I2C write-then-read operation with an I2C stop condition between operations.</p>
+<p>This method writes data to the specified I2C address and then reads back a response,
+with an I2C stop condition issued between the write and read operations. This is
+critical for devices that require the stop condition to process the data before
+responding.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(address)" class="doc doc-heading doc-heading-parameter">              <b><code>address</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(address)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>7-bit I2C device address.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(payload)" class="doc doc-heading doc-heading-parameter">              <b><code>payload</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(payload)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Bytes to write.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(length)" class="doc doc-heading doc-heading-parameter">              <b><code>length</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(length)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Number of bytes to read back.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(endianness)" class="doc doc-heading doc-heading-parameter">              <b><code>endianness</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write_then_read_raw(endianness)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Literal&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Literal">Literal</a>[&#39;little&#39;, &#39;big&#39;]</code>)
+          –
+          <div class="doc-md-description">
+            <p>Byte order for integer conversion.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>int</code></b> (              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>The read data converted to an integer using the specified endianness.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.read" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">read</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">read</span><span class="p">(</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;peripheral&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.read(peripheral)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read(peripheral)">peripheral</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;register_alias&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.read(register_alias)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read(register_alias)">register_alias</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;field&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.read(field)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read(field)">field</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;**kwargs&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.read(**kwargs)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read(**kwargs)">kwargs</a></span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Measurement&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.Measurement&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.Measurement">Measurement</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Read a register or specific field of a register from an I2C device using the system definition.</p>
+<p>Reads from a device register defined in the system definition. The method handles
+all low-level details including register addressing, byte width, and endianness
+automatically based on the system definition configuration.</p>
+<p>If a field name is provided, only that specific bit field within the register is
+extracted and returned. The field is masked and shifted according to its definition.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.read(peripheral)" class="doc doc-heading doc-heading-parameter">              <b><code>peripheral</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read(peripheral)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Name of the peripheral device in the system definition.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.read(register_alias)" class="doc doc-heading doc-heading-parameter">              <b><code>register_alias</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read(register_alias)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Alias of the register to read from.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.read(field)" class="doc doc-heading doc-heading-parameter">              <b><code>field</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read(field)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>, default:
+                  <code>&#39;&#39;</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Optional field name within the register to extract.
+If provided, only that specific bit field is extracted. Defaults to "".</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.read(**kwargs)" class="doc doc-heading doc-heading-parameter">              <b><code>**kwargs</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.read(**kwargs)" class="headerlink" title="Permanent link">¤</a></h4>          –
+          <div class="doc-md-description">
+            <p>Optional keyword arguments used as tags. These tags are applied to the
+Measurement object and can be utilized by publishers like NominalCorePublisher
+as added metadata.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>Measurement</code></b> (              <code><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Measurement&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.Measurement&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.Measurement">Measurement</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>A Measurement object containing the channel name, read value,
+timestamp, and tags. The measurement is automatically published to all
+configured publishers.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
+            –
+          <div class="doc-md-description">
+            <p>If the peripheral is not a register-based device.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">write</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">write</span><span class="p">(</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;peripheral&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write(peripheral)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write(peripheral)">peripheral</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;register_alias&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write(register_alias)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write(register_alias)">register_alias</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;value&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write(value)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write(value)">value</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;field&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write(field)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write(field)">field</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="o">**</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;**kwargs&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.write(**kwargs)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write(**kwargs)">kwargs</a></span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Command&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.Command&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.Command">Command</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Write to a register or specific field of the register on an I2C device using the system definition.</p>
+<p>Writes to a device register defined in the system definition. The method handles
+all low-level details including register addressing, byte width, and endianness
+automatically based on the system definition configuration.</p>
+<p>If a field name is provided, this performs a read-modify-write (RMW) operation:
+1. Read the current register value
+2. Mask out the field bits
+3. Insert the new field value
+4. Write the modified register back</p>
+<p>The RMW operation is thread-safe, protected by an internal lock.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write(peripheral)" class="doc doc-heading doc-heading-parameter">              <b><code>peripheral</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write(peripheral)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Name of the peripheral device in the system definition.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write(register_alias)" class="doc doc-heading doc-heading-parameter">              <b><code>register_alias</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write(register_alias)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Alias of the register to write to.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write(value)" class="doc doc-heading doc-heading-parameter">              <b><code>value</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write(value)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Value to write. For fields, this is the field value, not the full register.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write(field)" class="doc doc-heading doc-heading-parameter">              <b><code>field</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write(field)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>, default:
+                  <code>&#39;&#39;</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Optional field name within the register to modify.
+If provided, performs a read-modify-write operation. Defaults to "".</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.write(**kwargs)" class="doc doc-heading doc-heading-parameter">              <b><code>**kwargs</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.write(**kwargs)" class="headerlink" title="Permanent link">¤</a></h4>          –
+          <div class="doc-md-description">
+            <p>Optional keyword arguments used as tags. These tags are applied to the
+Command object and can be utilized by publishers like NominalCorePublisher
+as added metadata.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>Command</code></b> (              <code><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Command&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.Command&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.Command">Command</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>A Command object containing the channel name, written value, timestamp, and tags.
+The command is automatically published to all configured publishers.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
+            –
+          <div class="doc-md-description">
+            <p>If the peripheral is not a register-based device.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">reset_reg</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">reset_reg</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;peripheral&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg(peripheral)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg(peripheral)">peripheral</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;register_alias&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg(register_alias)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg(register_alias)">register_alias</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="o">**</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;**kwargs&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg(**kwargs)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg(**kwargs)">kwargs</a></span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Reset a register to its default value as defined in the system definition.</p>
+<p>Writes the default value specified in the system definition's register configuration
+back to the hardware register. This is useful for initialization or recovery operations.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg(peripheral)" class="doc doc-heading doc-heading-parameter">              <b><code>peripheral</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg(peripheral)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Name of the peripheral device in the system definition.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg(register_alias)" class="doc doc-heading doc-heading-parameter">              <b><code>register_alias</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg(register_alias)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Alias of the register to reset.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg(**kwargs)" class="doc doc-heading doc-heading-parameter">              <b><code>**kwargs</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.reset_reg(**kwargs)" class="headerlink" title="Permanent link">¤</a></h4>          –
+          <div class="doc-md-description">
+            <p>Optional keyword arguments used as tags. These tags are applied to the
+Command object and can be utilized by publishers like NominalCorePublisher
+as added metadata.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
+            –
+          <div class="doc-md-description">
+            <p>If the peripheral is not a register-based device.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.query" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">query</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.query" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">query</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;peripheral&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.query(peripheral)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.query(peripheral)">peripheral</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;batch_command&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.query(batch_command)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.query(batch_command)">batch_command</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="o">**</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;**kwargs&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.query(**kwargs)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.query(**kwargs)">kwargs</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Measurement&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.Measurement&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.Measurement">Measurement</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Send a command to a device and read back the response with an I2C stop condition between operations.</p>
+<p>This method performs a write operation followed by a read operation with an I2C stop
+condition in between. This is critical for devices that require the stop condition to
+process the command before responding.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.query(peripheral)" class="doc doc-heading doc-heading-parameter">              <b><code>peripheral</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.query(peripheral)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>The peripheral device name in the system definition.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.query(batch_command)" class="doc doc-heading doc-heading-parameter">              <b><code>batch_command</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.query(batch_command)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>A predefined batch command name that combines multiple
+command enums. The system automatically ORs the enum values together.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.query(**kwargs)" class="doc doc-heading doc-heading-parameter">              <b><code>**kwargs</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.query(**kwargs)" class="headerlink" title="Permanent link">¤</a></h4>          –
+          <div class="doc-md-description">
+            <p>Optional keyword arguments used as tags. These tags are applied to the
+Measurement object and can be utilized by publishers like NominalCorePublisher
+as added metadata.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>Measurement</code></b> (              <code><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Measurement&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.Measurement&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.Measurement">Measurement</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>A Measurement object containing the channel name, response value,
+timestamp, and tags. The measurement is automatically published to all
+configured publishers.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
+            –
+          <div class="doc-md-description">
+            <p>If the peripheral is not a command-based device, or if any of the
+command enums in the batch_command are not defined in the device's commands.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.close" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">close</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.close" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">close</span><span class="p">()</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Close the I2C instrument and release hardware resources.</p>
+<p>Performs cleanup by closing the underlying driver connection and releasing
+any hardware resources. This should be called when the instrument is no
+longer needed to ensure proper resource cleanup.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.add_publisher" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">add_publisher</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.add_publisher" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">add_publisher</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;publisher&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.add_publisher(publisher)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.add_publisher(publisher)">publisher</a></span><span class="p">:</span> <span class="n"><span title="nominal_instro.lib.publishers.publisher.Publisher">Publisher</span></span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Add a publisher to the list of publishers for this instrument.</p>
+<p>Publishers receive all Measurement and Command objects that are published by this
+instrument. Multiple publishers can be added to send data to different destinations.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.add_publisher(publisher)" class="doc doc-heading doc-heading-parameter">              <b><code>publisher</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.add_publisher(publisher)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><span title="nominal_instro.lib.publishers.publisher.Publisher">Publisher</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>The publisher instance to add.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.publish" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">publish</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.publish" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">publish</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;data&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.publish(data)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.publish(data)">data</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Measurement&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.types.Measurement&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.Measurement">Measurement</a></span> <span class="o">|</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Command&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.types.Command&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.Command">Command</a></span><span class="p">,</span> <span class="o">**</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;**kwargs&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.publish(**kwargs)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.publish(**kwargs)">kwargs</a></span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Publish a Measurement or Command to all configured publishers.</p>
+<p>This method sends the data to all publishers that have been added to this instrument.
+Additional keyword arguments are passed through to each publisher's publish method.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.publish(data)" class="doc doc-heading doc-heading-parameter">              <b><code>data</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.publish(data)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Measurement&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.types.Measurement&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.Measurement">Measurement</a> | <a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;Command&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.types.Command&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.Command">Command</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>The measurement or command data to publish.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.publish(**kwargs)" class="doc doc-heading doc-heading-parameter">              <b><code>**kwargs</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.publish(**kwargs)" class="headerlink" title="Permanent link">¤</a></h4>          –
+          <div class="doc-md-description">
+            <p>Optional keyword arguments passed to each publisher's publish method.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.get_identity" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">get_identity</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.get_identity" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">get_identity</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Query the instrument's identity string.</p>
+<p>This method sends the SCPI "*IDN?" command to retrieve the instrument's identification
+information, which typically includes manufacturer, model number, serial number, and
+firmware version.</p>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>str</code></b> (              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>The instrument's identity string.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError">RuntimeError</a></code>
+            –
+          <div class="doc-md-description">
+            <p>If no connection is configured for this instrument (data_handler is None).</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.open_and_get_identity" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">open_and_get_identity</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.open_and_get_identity" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">open_and_get_identity</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;connection_config&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.open_and_get_identity(connection_config)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.open_and_get_identity(connection_config)">connection_config</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;ConnectConfig&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.cominterface.ConnectConfig&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.cominterface.ConnectConfig">ConnectConfig</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Convenience method to open a connection, query identity, and close.</p>
+<p>This static method creates a temporary instrument instance, opens a connection,
+queries the identity, closes the connection, and returns the identity string.
+Useful for instrument discovery without maintaining a long-lived connection.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.open_and_get_identity(connection_config)" class="doc doc-heading doc-heading-parameter">              <b><code>connection_config</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.open_and_get_identity(connection_config)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;ConnectConfig&lt;/span&gt;
+
+
+  &lt;span class=&quot;doc doc-labels&quot;&gt;
+      &lt;small class=&quot;doc doc-label doc-label-dataclass&quot;&gt;&lt;code&gt;dataclass&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;nominal_instro.lib.cominterface.ConnectConfig&lt;/code&gt;)" href="../../instrumentation/#nominal_instro.lib.cominterface.ConnectConfig">ConnectConfig</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>The connection configuration for the instrument.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>str</code></b> (              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>The instrument's identity string.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError">RuntimeError</a></code>
+            –
+          <div class="doc-md-description">
+            <p>If the connection cannot be established or the identity cannot be queried.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.open" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">open</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.open" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">open</span><span class="p">()</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Open a connection to the instrument.</p>
+<p>This method establishes communication with the instrument if a connection configuration
+has been provided. If no data_handler exists (connection_config was None), this method
+does nothing.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.send_arbitrary_command" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">send_arbitrary_command</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.send_arbitrary_command" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">send_arbitrary_command</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;command&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.send_arbitrary_command(command)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.send_arbitrary_command(command)">command</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Send an arbitrary command string to the instrument.</p>
+<p>This method allows sending custom commands directly to the instrument without
+going through the instrument's high-level API. Useful for accessing instrument-specific
+features not exposed by the standard interface.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.send_arbitrary_command(command)" class="doc doc-heading doc-heading-parameter">              <b><code>command</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.send_arbitrary_command(command)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>The command string to send to the instrument.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError">RuntimeError</a></code>
+            –
+          <div class="doc-md-description">
+            <p>If no connection is configured for this instrument (data_handler is None).</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.query_arbitrary_command" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">query_arbitrary_command</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.query_arbitrary_command" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">query_arbitrary_command</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;command&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.query_arbitrary_command(command)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.query_arbitrary_command(command)">command</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Send an arbitrary command string and return the instrument's response.</p>
+<p>This method sends a command and waits for a response, useful for querying instrument
+state or configuration. The response is returned as a string.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.query_arbitrary_command(command)" class="doc doc-heading doc-heading-parameter">              <b><code>command</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.query_arbitrary_command(command)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>The query command string to send to the instrument.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>str</code></b> (              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>The instrument's response to the query command.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError">RuntimeError</a></code>
+            –
+          <div class="doc-md-description">
+            <p>If no connection is configured for this instrument (data_handler is None).</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">add_background_daemon_function</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">add_background_daemon_function</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;method&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function(method)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function(method)">method</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Callable&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Callable">Callable</a></span><span class="p">,</span> <span class="o">*</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;*args&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function(*args)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function(*args)">args</a></span><span class="p">,</span> <span class="o">**</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;**kwargs&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function(**kwargs)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function(**kwargs)">kwargs</a></span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Adds a function (and its arguments) to be periodically called by the background worker daemon.</p>
+<p>There may already be functions defined and this will add to the end of that list.
+Call <code>define_background_daemon</code> to clear and define a new function if you do not want the default
+functions to run.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function(method)" class="doc doc-heading doc-heading-parameter">              <b><code>method</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function(method)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Callable&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Callable">Callable</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>The method/function to be invoked in the background thread.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function(*args)" class="doc doc-heading doc-heading-parameter">              <b><code>*args</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function(*args)" class="headerlink" title="Permanent link">¤</a></h4>          –
+          <div class="doc-md-description">
+            <p>Positional arguments to pass to the method.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function(**kwargs)" class="doc doc-heading doc-heading-parameter">              <b><code>**kwargs</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.add_background_daemon_function(**kwargs)" class="headerlink" title="Permanent link">¤</a></h4>          –
+          <div class="doc-md-description">
+            <p>Keyword arguments to pass to the method.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.start" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">start</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.start" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">start</span><span class="p">()</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Start the background worker thread.</p>
+<p>This method creates and starts a daemon thread that periodically executes all
+registered background daemon functions. If the thread is already running, this
+method does nothing. The thread will continue running until <code>stop()</code> is called.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.stop" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">stop</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.stop" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">stop</span><span class="p">()</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Stop the background worker thread.</p>
+<p>This method signals the background worker thread to stop and waits for it to
+complete. If the thread is not running, this method does nothing.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">define_background_daemon</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon" class="headerlink" title="Permanent link">¤</a></h3>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">define_background_daemon</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;method&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon(method)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon(method)">method</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Callable&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Callable">Callable</a></span><span class="p">,</span> <span class="o">*</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;*args&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon(*args)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon(*args)">args</a></span><span class="p">,</span> <span class="o">**</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;**kwargs&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon(**kwargs)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon(**kwargs)">kwargs</a></span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Clear all background daemon functions and register a single custom method.</p>
+<p>This method clears any previously registered background daemon functions and
+registers a new method to be called in the background daemon loop. This is useful
+when you want to replace the default background functions with a custom implementation.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon(method)" class="doc doc-heading doc-heading-parameter">              <b><code>method</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon(method)" class="headerlink" title="Permanent link">¤</a></h4>              (<code><a class="autorefs autorefs-external" title="&lt;code&gt;typing.Callable&lt;/code&gt;" href="https://docs.python.org/3/library/typing.html#typing.Callable">Callable</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>The method to call as part of the background daemon.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon(*args)" class="doc doc-heading doc-heading-parameter">              <b><code>*args</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon(*args)" class="headerlink" title="Permanent link">¤</a></h4>          –
+          <div class="doc-md-description">
+            <p>Positional arguments to pass to the method when it is called.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+<h4 id="nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon(**kwargs)" class="doc doc-heading doc-heading-parameter">              <b><code>**kwargs</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2C.define_background_daemon(**kwargs)" class="headerlink" title="Permanent link">¤</a></h4>          –
+          <div class="doc-md-description">
+            <p>Keyword arguments to pass to the method when it is called.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="nominal_instro.instruments.i2c.i2c.NominalI2CFacade" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <span class="doc doc-object-name doc-class-name">NominalI2CFacade</span>
+
+
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2CFacade" class="headerlink" title="Permanent link">¤</a></h2>
+<div class="language-python doc-signature highlight"><pre><span></span><code><span class="nf">NominalI2CFacade</span><span class="p">(</span><span class="n"><a class="autorefs autorefs-internal" title="&lt;b&gt;&lt;code&gt;nominal_i2c&lt;/code&gt;&lt;/b&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2CFacade(nominal_i2c)&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2CFacade(nominal_i2c)">nominal_i2c</a></span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;NominalI2C&lt;/span&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C">NominalI2C</a></span><span class="p">)</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Facade class that provides drivers with access to NominalI2C configuration.</p>
+<p>This class implements the APINominalI2C interface and allows drivers to access
+I2C configuration without direct access to the NominalI2C instance's internal state.</p>
+
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<h3 id="nominal_instro.instruments.i2c.i2c.NominalI2CFacade(nominal_i2c)" class="doc doc-heading doc-heading-parameter">              <b><code>nominal_i2c</code></b>
+<a href="#nominal_instro.instruments.i2c.i2c.NominalI2CFacade(nominal_i2c)" class="headerlink" title="Permanent link">¤</a></h3>              (<code><a class="autorefs autorefs-internal" title="&lt;code class=&quot;doc-symbol doc-symbol-heading doc-symbol-class&quot;&gt;&lt;/code&gt;            &lt;span class=&quot;doc doc-object-name doc-class-name&quot;&gt;NominalI2C&lt;/span&gt; (&lt;code&gt;nominal_instro.instruments.i2c.i2c.NominalI2C&lt;/code&gt;)" href="#nominal_instro.instruments.i2c.i2c.NominalI2C">NominalI2C</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>The NominalI2C instance to provide access to.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Nominal, Inc.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/nominal-io" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
